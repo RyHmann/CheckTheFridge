@@ -1,0 +1,28 @@
+﻿@model IEnumerable<CheckTheFridge.Models.Ingredient>
+
+@{
+    ViewBag.Title = "IngredientIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>IngredientIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "ToCreateIngredientForm")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+    </tr>
+}
+
+</table>

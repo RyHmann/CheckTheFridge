@@ -1,0 +1,32 @@
+﻿@model CheckTheFridge.Models.Fridge
+
+@{
+    ViewBag.Title = "Available Ingredients";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Fridge</h2>
+
+<p>
+    @Html.ActionLink("Add Ingredient", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Ingredient</th>
+        <th>Quantity</th>
+        <th>Unit</th>
+    </tr>
+    @foreach (var ingredient in Model.Contents)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => ingredient.Label)</td>
+            <td>@Html.DisplayFor(modelItem => ingredient.Quantity)</td>
+            <td>@Html.DisplayFor(modelItem => ingredient.UnitLabel)</td>
+            <td>
+                @Html.ActionLink("Edit", "EditIngredient", new { id=ingredient.FridgeIngredientId}) |
+                @Html.ActionLink("Delete", "Delete", new {id=ingredient.FridgeIngredientId})
+            </td>
+        </tr>
+    }
+</table>
+

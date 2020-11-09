@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CheckTheFridge.Models.Unit>
+
+@{
+    ViewBag.Title = "Units";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Units</h2>
+
+<p>
+    @Html.ActionLink("Add Unit", "ToCreateUnitForm")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.unit_id)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.label)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        </td>
+    </tr>
+}
+
+</table>
